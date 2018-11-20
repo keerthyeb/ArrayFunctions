@@ -10,6 +10,10 @@ const square = function(number){
   return number*number;
 }
 
+const getLength = function(element){
+  return element.length;
+}
+
 describe("map", function(){
 
   it("Testing identity function",function(){
@@ -23,6 +27,12 @@ describe("map", function(){
     assert.deepEqual(map([],square),[]);
     assert.deepEqual(map([3],square),[9]);
     assert.deepEqual(map([1,2,3,4],square),[1,4,9,16]);
+  });
+
+  it("Testing function that return different dataType",function(){ 
+    assert.deepEqual(map([],getLength),[]);
+    assert.deepEqual(map(["keerthy"],getLength),[7]);
+    assert.deepEqual(map(["puli","keerthy","athul"],getLength),[ 4 , 7 , 5 ]);
   });
 
 });
