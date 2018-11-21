@@ -16,8 +16,21 @@ const filter = function(callBackFunc,list){
   return outputList;
 }
 
+const reduce = function(callBackFunc,list,accumulator){
+  let index = 0 ;
+  if( accumulator == undefined){
+    accumulator = list[0];
+    index = 1;
+  }
+  let output = accumulator ;
+  for(; index < list.length ; index++){
+    output = callBackFunc(accumulator,list[index]);
+    accumulator = output;
+  }
+  return output;
+}
 
-module.exports = { map , filter };
+module.exports = { map , filter , reduce };
 
 
 
