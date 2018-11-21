@@ -1,4 +1,4 @@
-const map = function(list,callBackFunc){
+const map = function(callBackFunc,list){
   let outputList = [];
   for(let index = 0 ; index < list.length ; index++ ){
     outputList.push(callBackFunc(list[index]));
