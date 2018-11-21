@@ -6,7 +6,18 @@ const map = function(list,callBackFunc){
   return outputList;
 }
 
-module.exports = { map };
+const filter = function(callBackFunc,list){
+  let outputList = [];
+  for(let index = 0 ; index < list.length ; index++){
+    if(callBackFunc(list[index])){
+      outputList.push(list[index]);
+    }
+  }
+  return outputList;
+}
 
 
-      
+module.exports = { map , filter };
+
+
+
