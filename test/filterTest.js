@@ -1,6 +1,5 @@
 const assert = require("assert");
-const lib = require("../src/arrayFunctionLibrary.js");
-const { filter } = lib ;
+const { filter } = require("../src/arrayFunctionLibrary.js");
 
 const isEven = function(number){
   return number % 2 == 0 ;
