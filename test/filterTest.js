@@ -5,23 +5,28 @@ const isEven = function(number){
   return number % 2 == 0 ;
 }
 
-const returnTrue = function(element){
+const truthify = function(element){
   return true;
 }
 
 describe("filter" , function(){
-  it(" Test function that return only true",function(){
-    assert.deepEqual(filter(returnTrue,[]),[]);
-    assert.deepEqual(filter(returnTrue,[1]),[1]);
-    assert.deepEqual(filter(returnTrue,[2]),[2]);
-    assert.deepEqual(filter(returnTrue,[1,2,3,4,5]),[1,2,3,4,5]);
+  it("Should return an empty array if we are giving an empty array",function(){
+    assert.deepEqual(filter(truthify,[]),[]);
+    assert.deepEqual(filter(isEven,[]),[]);
+    assert.deepEqual(filter(() => false,[]),[]);
   });
 
-  it("test function that return both ture and false",function(){
-    assert.deepEqual(filter(isEven,[]),[]);
+  it("Should work only if array of one element is given",function(){
+    assert.deepEqual(filter(truthify,[1]),[1]);
     assert.deepEqual(filter(isEven,[1]),[]);
     assert.deepEqual(filter(isEven,[2]),[2]);
+    assert.deepEqual(filter(() => false,[4]),[]);
+  });
+
+  it("Should workwith array of mor than one element",function(){
+    assert.deepEqual(filter(truthify,[1,2,3,4,5]),[1,2,3,4,5]);
     assert.deepEqual(filter(isEven,[1,2,3,4,5]),[2,4]);
+    assert.deepEqual(filter(() => false , [1,2,3,4]),[]);
   });
 });
 
