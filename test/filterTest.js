@@ -17,6 +17,13 @@ describe("filter" , function(){
     assert.deepEqual(filter(returnTrue,[2]),[2]);
     assert.deepEqual(filter(returnTrue,[1,2,3,4,5]),[1,2,3,4,5]);
   });
+
+  it("test function that return both ture and false",function(){
+    assert.deepEqual(filter(isEven,[]),[]);
+    assert.deepEqual(filter(isEven,[1]),[]);
+    assert.deepEqual(filter(isEven,[2]),[2]);
+    assert.deepEqual(filter(isEven,[1,2,3,4,5]),[2,4]);
+  });
 });
 
 
