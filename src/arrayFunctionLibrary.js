@@ -1,22 +1,22 @@
-const map = function(callBackFunc,list){
+const map = function(mapper,list){
   let outputList = [];
   for(let index = 0 ; index < list.length ; index++ ){
-    outputList.push(callBackFunc(list[index]));
+    outputList.push(mapper(list[index]));
   }
   return outputList;
 }
 
-const filter = function(callBackFunc,list){
+const filter = function(predicate,list){
   let outputList = [];
   for(let index = 0 ; index < list.length ; index++){
-    if(callBackFunc(list[index])){
+    if(predicate(list[index])){
       outputList.push(list[index]);
     }
   }
   return outputList;
 }
 
-const reduce = function(callBackFunc,list,accumulator){
+const reduce = function(reducer,list,accumulator){
   let index = 0 ;
   if( accumulator == undefined){
     accumulator = list[0];
@@ -24,7 +24,7 @@ const reduce = function(callBackFunc,list,accumulator){
   }
   let output = accumulator ;
   for(; index < list.length ; index++){
-    output = callBackFunc(accumulator,list[index]);
+    output = reducer(accumulator,list[index]);
     accumulator = output;
   }
   return output;
