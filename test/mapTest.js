@@ -1,6 +1,5 @@
 const assert = require("assert");
-const lib = require("../src/arrayFunctionLibrary.js");
-const { map } = lib ;
+const { map } = require("../src/arrayFunctionLibrary.js");
 
 const identity = function(constant){
   return constant;
@@ -10,7 +9,7 @@ const square = function(number){
   return number*number;
 }
 
-const getLength = function(element){
+const findLength = function(element){
   return element.length;
 }
 
@@ -30,9 +29,9 @@ describe("map", function(){
   });
 
   it("Testing function that return different dataType",function(){ 
-    assert.deepEqual(map(getLength,[]),[]);
-    assert.deepEqual(map(getLength,["keerthy"]),[7]);
-    assert.deepEqual(map(getLength,["puli","keerthy","athul"]),[ 4 , 7 , 5 ]);
+    assert.deepEqual(map(findLength,[]),[]);
+    assert.deepEqual(map(findLength,["keerthy"]),[7]);
+    assert.deepEqual(map(findLength,["puli","keerthy","athul"]),[ 4 , 7 , 5 ]);
   });
 
 });
