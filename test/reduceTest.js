@@ -20,20 +20,20 @@ const concatination = function(text1,text2){
 }
 
 describe("reduce",function(){
-  it("Test with function that return same dataType",function(){
+  it("Should work with array of length one",function(){
     assert.deepEqual(reduce(getGreater,[1]),1);
-    assert.deepEqual(reduce(getGreater,[1,2,3,2,4,1]),4);
+    assert.deepEqual(reduce(concatination,["keerthy"]),"keerthy");
   });
 
-  it("Test with function that return different dataType",function(){
+  it("Should work with array of length more than one",function(){
+    assert.deepEqual(reduce(getGreater,[1,2,3,2,4,1]),4);
+    assert.deepEqual(reduce(concatination,["puli","keerthy"],[]),"pulikeerthy");
+  });
+
+  it("Should support accumulator ", function(){
     assert.deepEqual(reduce(isElementExist,[1],[]),[1]);
     assert.deepEqual(reduce(isElementExist,[1,2,3,1,2],[]),[1,2,3]);
     assert.deepEqual(reduce(isElementExist,[2,3,4],[]),[2,3,4]);
-  });
-
-  it("Test with array Of string " , function(){
-    assert.deepEqual(reduce(concatination,["keerthy"]),"keerthy");
-    assert.deepEqual(reduce(concatination,["puli","keerthy"],[]),"pulikeerthy");
   });
 
 });
