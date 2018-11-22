@@ -33,8 +33,9 @@ describe("reduce",function(){
 
   it("Test with array Of string " , function(){
     assert.deepEqual(reduce(concatination,["keerthy"]),"keerthy");
-    assert.deepEqual(reduce(concatination,["puli","keerthy"]),"pulikeerthy");
+    assert.deepEqual(reduce(concatination,["puli","keerthy"],[]),"pulikeerthy");
   });
+
 
 
 });

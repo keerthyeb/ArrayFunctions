@@ -17,17 +17,14 @@ const filter = function(predicate,list){
 }
 
 const reduce = function(reducer,list,accumulator){
-  let index = 0 ;
-  if( accumulator == undefined){
-    accumulator = list[0];
-    index = 1;
+  if(list.length == 1){
+    if( accumulator == undefined){
+      return list[0];
+    }
+    return reducer(accumulator,list[0]);
   }
-  let output = accumulator ;
-  for(; index < list.length ; index++){
-    output = reducer(accumulator,list[index]);
-    accumulator = output;
-  }
-  return output;
+
+  return reducer(reduce(reducer,list.slice(0,list.length-1),accumulator),list[list.length-1]);
 }
 
 module.exports = { map , filter , reduce };
