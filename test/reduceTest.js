@@ -36,7 +36,5 @@ describe("reduce",function(){
     assert.deepEqual(reduce(concatination,["puli","keerthy"],[]),"pulikeerthy");
   });
 
-
-
 });
 
