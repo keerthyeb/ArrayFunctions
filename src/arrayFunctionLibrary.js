@@ -28,7 +28,15 @@ const reduce = function(reducer,list,accumulator){
   return accumulator;
 }
 
-module.exports = { map , filter , reduce };
+const mapPrime = function(mapper,list){
+  return reduce(reducer(mapper),list,[]);
+}
 
+const reducer = function(mapper){
+  return function(accumulator,element){
+    accumulator.push(mapper(element));
+      return accumulator;
+  }
+}
 
-
+module.exports = { map , filter , reduce , mapPrime };
