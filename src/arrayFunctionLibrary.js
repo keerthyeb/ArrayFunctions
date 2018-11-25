@@ -10,7 +10,7 @@ const recursiveMap = function(mapper,list){
   if(list.length == 0){
     return [];
   }
-  return [mapper(list[0])].concat(map(mapper,list.slice(1)));
+  return [mapper(list[0])].concat(recursiveMap(mapper,list.slice(1)));
 }
 
 
@@ -23,6 +23,7 @@ const filter = function(predicate,list){
   }
   return outputList;
 }
+
 
 const reduce = function(reducer,list,accumulator){
   if( accumulator == undefined){
