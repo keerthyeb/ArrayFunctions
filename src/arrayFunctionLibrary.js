@@ -6,6 +6,14 @@ const map = function(mapper,list){
   return outputList;
 }
 
+const recursiveMap = function(mapper,list){
+  if(list.length == 0){
+    return [];
+  }
+  return [mapper(list[0])].concat(map(mapper,list.slice(1)));
+}
+
+
 const filter = function(predicate,list){
   let outputList = [];
   for(element of list){
@@ -53,4 +61,4 @@ const predicatePrime = function(predicate){
     }
 }
 
-module.exports = { map , filter , reduce , mapPrime , filterPrime };
+module.exports = { map , filter , reduce , mapPrime , filterPrime , recursiveMap };
